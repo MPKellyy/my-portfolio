@@ -1,3 +1,7 @@
+body{
+    background-color: powderblue;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
@@ -6,4 +10,56 @@
 
 #greeting-container {
   margin-top: 20px;
+}
+
+#androids{
+    border-radius: 50%;
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: outset;
+}
+
+#header{
+    border-style: outset;
+    background-color: lavender;
+    text-align: center;
+}
+
+#inner{
+    border-style: groove;
+    background-color: mistyrose;
+}
+
+#categories{
+    border-style: groove;
+}
+
+#random-image-container1 img {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+#random-image-container2 img {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+#picbutton{
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+#navbar{
+    border-style: inset;
+    background-color: wheat;
 }

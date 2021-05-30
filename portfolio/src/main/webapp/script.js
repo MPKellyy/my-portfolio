@@ -13,16 +13,39 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Generates a URL for a random image in the images directory and adds an img
+ * element with that URL to the page (specifically for schedify).
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function randomizeImage1() {
+  // The images directory contains 4 images, so generate a random index between
+  // 1 and 4.
+  const imageIndex = Math.floor(Math.random() * 4) + 1;
+  const imgUrl = 'images/schedify-' + imageIndex + '.png';
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const imgElement = document.createElement('img');
+  imgElement.src = imgUrl;
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const imageContainer = document.getElementById('random-image-container1');
+  // Remove the previous image.
+  imageContainer.innerHTML = '';
+  imageContainer.appendChild(imgElement);
+}
+
+/**
+ * Generates a URL for a random image in the images directory and adds an img
+ * element with that URL to the page (specifically for ITN-SelfSearch).
+ */
+function randomizeImage2() {
+  // The images directory contains 4 images, so generate a random index between
+  // 1 and 4.
+  const imageIndex = Math.floor(Math.random() * 4) + 1;
+  const imgUrl = 'images/ITN-SelfSearch-' + imageIndex + '.png';
+
+  const imgElement = document.createElement('img');
+  imgElement.src = imgUrl;
+
+  const imageContainer = document.getElementById('random-image-container2');
+  // Remove the previous image.
+  imageContainer.innerHTML = '';
+  imageContainer.appendChild(imgElement);
 }

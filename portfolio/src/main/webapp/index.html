@@ -2,18 +2,36 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Portfolio Homepage</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1 id="header">Michael Kelly's Portfolio</h1>
+      <div id="inner">
+        <div id="navbar">
+          <span title="Click here to see my resume">
+            <button><a href="resume.html">Resume</a></button>
+          </span>
+          <span title="Click here to see my projects">
+            <button><a href="projects.html">Projects</a></button>
+          </span>
+        </div>
+        <div id="categories">
+          <p>Welcome to my portfolio!</p>
+          <p>I am a student at the University of Alabama in Huntsville (UaH) majoring in Computer Science and minoring in Mathematics and Biology</p>
+          <p>Here are a few coding languages that I am proficient in:</p>
+          <ul>
+            <li>Java</li>
+            <li>C++</li>
+            <li>C</li>
+          </ul>
+          <img src="/images/androids.jpeg", id="androids" />
+          <br>
+          <br>
+        </div>
+      </div>
     </div>
   </body>
 </html>

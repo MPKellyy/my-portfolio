@@ -13,16 +13,21 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Generates a URL for a random image in the images directory and adds an img
+ * element with that URL to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function randomizeImage(imagePath, imageContainer) {
+  // The images directory contains 4 images, so generate a random index between
+  // 1 and 4.
+  const imageIndex = Math.floor(Math.random() * 4) + 1;
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  imgUrl = imagePath + imageIndex + '.png';
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const imgElement = document.createElement('img');
+  imgElement.src = imgUrl;
+
+  imageContainer = document.getElementById(imageContainer);
+  // Remove the previous image.
+  imageContainer.innerHTML = '';
+  imageContainer.appendChild(imgElement);
 }

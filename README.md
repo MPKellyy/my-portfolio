@@ -1,6 +1,6 @@
 # Google Software Product Sprint
 
-This repo contains Micahel Kelly's portfolio and SPS projects.
+This repo contains Michael Kelly's portfolio and SPS projects.
 
 To get started:
 

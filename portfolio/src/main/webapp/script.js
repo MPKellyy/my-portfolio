@@ -31,3 +31,12 @@ function randomizeImage(imagePath, imageContainer) {
   imageContainer.innerHTML = '';
   imageContainer.appendChild(imgElement);
 }
+
+/** Fetches the current calendar from the server and adds it to the page. */
+async function generateLuckyNumber() {
+  const responseFromServer = await fetch('/lucky');
+  const textFromResponse = await responseFromServer.text();
+
+  const dateContainer = document.getElementById('luckynum-container');
+  dateContainer.innerText = textFromResponse;
+}

@@ -32,11 +32,26 @@ function randomizeImage(imagePath, imageContainer) {
   imageContainer.appendChild(imgElement);
 }
 
-/** Fetches the current calendar from the server and adds it to the page. */
+/** Fetches a lucky number from the server and adds it to the page. */
 async function generateLuckyNumber() {
   const responseFromServer = await fetch('/lucky');
   const textFromResponse = await responseFromServer.text();
 
   const dateContainer = document.getElementById('luckynum-container');
   dateContainer.innerText = textFromResponse;
+}
+
+/** Fetches a list of greetings and chooses one to display to the page. */
+async function generateRandMessage() {
+
+  //Recieving json data  
+  const responseFromServer = await fetch('/rand-message');
+  const jsonList = await responseFromServer.json();
+
+  //Calculating a random index to choose message
+  index = Math.floor((Math.random()*10)%(jsonList.length));
+
+  //displaying message
+  const dateContainer = document.getElementById('rand-message-container');
+  dateContainer.innerText = jsonList[index];
 }

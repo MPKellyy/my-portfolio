@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload=generateRandMessage()>
     <div id="content">
       <h1 id="header">Michael Kelly's Resume</h1>
 
@@ -17,6 +17,9 @@
             </span>
             <span title="Click here to see my projects">
               <button><a href="projects.html">Projects</a></button>
+            </span>
+            <span title="Click here to contact me">
+              <button><a href="contact-me.html">Contact Me</a></button>
             </span>
           </div>
         
@@ -77,6 +80,9 @@
             <h3>Honors Society</h3>
             <p>I am an inducted presidential member of the National Society of Leadership and Success. NSLS is an organization that specializes in leadership training for the top twentieth percentile of students in the US who have maintained high GPAs and demonstrated leadership in their community.</p>
           </div>
+      </div>
+      <div id="page-edge">
+        <p id="rand-message-container"></p>
       </div>
     </div>
   </body>

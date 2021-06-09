@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload=generateRandMessage()>
     <div id="content">
       <h1 id="header">Michael Kelly's Projects</h1>
 
@@ -18,6 +18,9 @@
           <span title="Click here to see my resume">
             <button><a href="resume.html">Resume</a></button>
           </span>
+          <span title="Click here to contact me">
+            <button><a href="contact-me.html">Contact Me</a></button>
+          </span>          
         </div>
           <div id="categories">
             <h2 id="inner-heading">Schedify</h2>
@@ -54,6 +57,9 @@
               <button id="picbutton", onclick="randomizeImage('images/ITN-SelfSearch-', 'random-image-container2')">View Random Project Image</button>
             </span>
             <br>   
+          </div>
+          <div id="page-edge">
+            <p id="rand-message-container"></p>
           </div>
       </div>
     </div>

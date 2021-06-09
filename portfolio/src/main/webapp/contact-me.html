@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body onload=generateRandMessage()>
+    <div id="content">
+      <h1 id="header">Contact Me</h1>
+      <div id="inner">
+        <div id="page-edge">
+          <span title="Click here to return home">
+            <button><a href="index.html">Homepage</a></button>
+          </span>
+          <span title="Click here to see my resume">
+            <button><a href="resume.html">Resume</a></button>
+          </span>
+          <span title="Click here to see me projects">
+            <button><a href="projects.html">Projects</a></button>
+          </span>
+        </div>
+        <div id="categories">
+          <h2>Want to contact me?</h2>
+          <p>You can reach me by my contact information on the resume page, or submit your own below!</p>
+          <form action="/form-handler" method="POST">
+            <p>Enter contact info here:</p>
+            <textarea name="text-input"></textarea>
+            <br/>
+            <input type="submit" />
+          </form>
+          <br>
+          <p id="luckynum-container"></p>
+          <div id="page-edge">
+            <p id="rand-message-container"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -22,9 +22,26 @@
           </span>
         </div>
         <div id="categories">
-          <h2>Want to contact me?</h2>
+          <div id="header">
+            <h2>Want to contact me?</h2>
+          </div>
           <p>You can reach me by my contact information on the resume page, or submit your own below!</p>
           <form action="/form-handler" method="POST">
+            <label>
+              <input type="checkbox" name="Job" value="true">
+              Job Opportunity
+            </label>
+            <br>
+            <label>
+              <input type="checkbox" name="Intern" value="true">
+              Internship Opportunity
+            </label>
+            <br>
+            <label>
+              <input type="checkbox" name="Other" value="true">
+              Other
+            </label>
+            <br>
             <p>Enter contact info here:</p>
             <textarea name="text-input"></textarea>
             <br/>

@@ -21,10 +21,14 @@ public class MessageServlet extends HttpServlet {
     String message1 = "\"The way to get started is to quit talking and begin doing.\"\n\n-Walt Disney";
     String message2 = "\"Tell me and I forget. Teach me and I remember. Involve me and I learn.\"\n\n-Benjamin Franklin";
     String message3 = "\"The future belongs to those who believe in the beauty of their dreams.\"\n\n-Eleanor Roosevelt";
+    String message4 = "\"It is our choices that show what we truly are, far more than our abilities.\"\n\n-J. K. Rowling";
+    String message5 = "\"There are no mistakes, only opportunities.\"\n\n-Tina Fey";
     
     messageList.add(message1);
     messageList.add(message2);
     messageList.add(message3);
+    messageList.add(message4);
+    messageList.add(message5);
 
     //Creating JSON data and returning it as a response
     String jsonList = convertToJsonUsingGson(messageList);

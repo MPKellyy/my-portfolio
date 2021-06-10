@@ -49,9 +49,9 @@ async function generateRandMessage() {
   const jsonList = await responseFromServer.json();
 
   //Calculating a random index to choose message
-  index = Math.floor((Math.random()*10)%(jsonList.length));
+  index = Math.floor(Math.random()*jsonList.length);
 
   //displaying message
   const dateContainer = document.getElementById('rand-message-container');
-  dateContainer.innerText = jsonList[index];
+  dateContainer.innerText = jsonList[index].quote + "\n\n-" + jsonList[index].author;
 }

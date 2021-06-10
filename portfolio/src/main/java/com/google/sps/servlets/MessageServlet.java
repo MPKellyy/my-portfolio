@@ -17,12 +17,12 @@ public class MessageServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     //Creating ArrayList of Quotes
-    ArrayList<String> messageList = new ArrayList<String>();
-    String message1 = "\"The way to get started is to quit talking and begin doing.\"\n\n-Walt Disney";
-    String message2 = "\"Tell me and I forget. Teach me and I remember. Involve me and I learn.\"\n\n-Benjamin Franklin";
-    String message3 = "\"The future belongs to those who believe in the beauty of their dreams.\"\n\n-Eleanor Roosevelt";
-    String message4 = "\"It is our choices that show what we truly are, far more than our abilities.\"\n\n-J. K. Rowling";
-    String message5 = "\"There are no mistakes, only opportunities.\"\n\n-Tina Fey";
+    ArrayList<Quote> messageList = new ArrayList<Quote>();
+    Quote message1 = new Quote("Walt Disney", "\"The way to get started is to quit talking and begin doing.\"");
+    Quote message2 = new Quote("Benjamin Franklin","\"Tell me and I forget. Teach me and I remember. Involve me and I learn.\"");
+    Quote message3 = new Quote("Eleanor Roosevelt", "\"The future belongs to those who believe in the beauty of their dreams.\"");
+    Quote message4 = new Quote("J. K. Rowling", "\"It is our choices that show what we truly are, far more than our abilities.\"");
+    Quote message5 = new Quote("Tina Fey", "\"There are no mistakes, only opportunities.\"");
     
     messageList.add(message1);
     messageList.add(message2);
@@ -40,7 +40,7 @@ public class MessageServlet extends HttpServlet {
    /**
    * Converts a ArrayList<String> instance into a JSON string using the Gson library
    */
-  private String convertToJsonUsingGson(ArrayList<String> inputMsgList) {
+  private String convertToJsonUsingGson(ArrayList<Quote> inputMsgList) {
     Gson gson = new Gson();
     String json = gson.toJson(inputMsgList);
     return json;

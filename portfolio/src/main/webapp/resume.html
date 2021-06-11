@@ -6,35 +6,43 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload=generateRandMessage()>
     <div id="content">
       <h1 id="header">Michael Kelly's Resume</h1>
-
       <div id="inner">
-          <div id="navbar">
+          <div id="page-edge">
             <span title="Click here to return home">
               <button><a href="index.html">Homepage</a></button>
             </span>
             <span title="Click here to see my projects">
               <button><a href="projects.html">Projects</a></button>
             </span>
+            <span title="Click here to contact me">
+              <button><a href="contact-me.html">Contact Me</a></button>
+            </span>
           </div>
         
           <div id="categories">
-            <h2 id="inner-heading">Contact Information</h2>
+            <div id="header">
+              <h2 id="inner-heading">Contact Information</h2>
+            </div>
             <p>Email: cybernationnews@gmail.com</p>
             <p>GitHub: <a href="https://github.com/MPKellyy">https://github.com/MPKellyy</a></p>
           </div>
 
           <div id="categories">
-            <h2 id="inner-heading">Education</h2>
+            <div id="header">
+              <h2 id="inner-heading">Education</h2>
+            </div>
             <p>College: University of Alabama in Huntsville</p>
             <p>Major: Computer Science</p>
             <p>Minors: Mathematics, Biology</p>
           </div>
 
           <div id="categories">
-            <h2 id="inner-heading">Experience</h2>
+            <div id="header">
+              <h2 id="inner-heading">Experience</h2>
+            </div>
             <div>
               <h3>Lionbridge (Remote) [11/14/19 - Present]</h3>
               <h4>Internet Safety Content Rater</h4>
@@ -73,10 +81,15 @@
             </div>
           </div>
           <div id="categories">
-            <h2 id="inner-heading">Affiliations</h2>
+            <div id="header">
+              <h2 id="inner-heading">Affiliations</h2>
+            </div>
             <h3>Honors Society</h3>
             <p>I am an inducted presidential member of the National Society of Leadership and Success. NSLS is an organization that specializes in leadership training for the top twentieth percentile of students in the US who have maintained high GPAs and demonstrated leadership in their community.</p>
           </div>
+      </div>
+      <div id="page-edge">
+        <p id="rand-message-container"></p>
       </div>
     </div>
   </body>

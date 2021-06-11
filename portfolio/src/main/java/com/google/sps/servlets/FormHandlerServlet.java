@@ -15,21 +15,17 @@ public class FormHandlerServlet extends HttpServlet {
     // Getting values entered in the form.
     String textValue = "";
 
-    boolean jobOpportunity = Boolean.parseBoolean(getParameter(request, "Job", "false"));
-    boolean internOpportunity = Boolean.parseBoolean(getParameter(request, "Intern", "false"));
-    boolean otherOpportunity = Boolean.parseBoolean(getParameter(request, "Other", "false"));
-
-    if(jobOpportunity){
-       textValue += "Job Opportunity: ";
-    }
-    else if(internOpportunity){
-       textValue += "Internship Opportunity: ";
-    }
-    else if(otherOpportunity){
-        textValue += "Other Opportunity: ";
-    }
-    else{
-        textValue += "Not Specified: ";
+    //Checking which radio button is selected and updating textValue accordingly
+    switch(request.getParameter("specifier").charAt(0)){
+        case '1':
+            textValue += "Job Opportunity: ";
+            break;
+        case '2':
+            textValue += "Internship Opportunity: ";
+            break;
+        case '3':
+            textValue += "Other Opportunity: ";
+            break;
     }
 
     textValue += request.getParameter("text-input");
@@ -39,17 +35,5 @@ public class FormHandlerServlet extends HttpServlet {
 
     // Write the value to the response so the user can see it.
     response.getWriter().println(textValue);
-  }
-
-   /**
-   * @return the request parameter, or the default value if the parameter
-   *         was not specified by the client
-   */
-  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
-    String value = request.getParameter(name);
-    if (value == null) {
-      return defaultValue;
-    }
-    return value;
   }
 }

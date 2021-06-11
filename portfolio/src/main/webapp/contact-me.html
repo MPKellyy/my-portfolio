@@ -27,21 +27,13 @@
           </div>
           <p>You can reach me by my contact information on the resume page, or submit your own below!</p>
           <form action="/form-handler" method="POST">
-            <label>
-              <input type="checkbox" name="Job" value="true">
-              Job Opportunity
-            </label>
-            <br>
-            <label>
-              <input type="checkbox" name="Intern" value="true">
-              Internship Opportunity
-            </label>
-            <br>
-            <label>
-              <input type="checkbox" name="Other" value="true">
-              Other
-            </label>
-            <br>
+            <input type="radio" id="job" name="specifier" value="1">
+            <label for="job">Job Opportunity</label><br>
+            <input type="radio" id="intern" name="specifier" value="2">
+            <label for="itern">Internship Opportunity</label><br>
+            <input type="radio" id="other" name="specifier" value="3" checked>
+            <label id="other">Other</label><br>
+            
             <p>Enter contact info here:</p>
             <textarea name="text-input"></textarea>
             <br/>

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Handles requests sent to the /rand-message URL. */
+/** Class that serves to represent a quote, containing the quote itself and an author */
 public final class Quote {
     //attributes
     private String author;

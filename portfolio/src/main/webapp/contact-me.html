@@ -25,25 +25,28 @@
           <div id="header">
             <h2>Want to contact me?</h2>
           </div>
-          <p>You can reach me by my contact information on the resume page, or submit your own below!</p>
-          <form action="/form-handler" method="POST">
-            <input type="radio" id="job" name="specifier" value="1">
-            <label for="job">Job Opportunity</label><br>
-            <input type="radio" id="intern" name="specifier" value="2">
-            <label for="itern">Internship Opportunity</label><br>
-            <input type="radio" id="other" name="specifier" value="3" checked>
-            <label id="other">Other</label><br>
-            
-            <p>Enter contact info here:</p>
-            <textarea name="text-input"></textarea>
-            <br/>
-            <input type="submit" />
-          </form>
-          <br>
-          <p id="luckynum-container"></p>
-          <div id="page-edge">
-            <p id="rand-message-container"></p>
+          <div id="inner2">
+            <p>You can reach me by my contact information on the resume page, or submit your own below!</p>
+            <form action="/form-handler" method="POST">
+              <input type="radio" id="job" name="specifier" value="1">
+              <label for="job">Job Opportunity</label><br>
+              <input type="radio" id="intern" name="specifier" value="2">
+              <label for="itern">Internship Opportunity</label><br>
+              <input type="radio" id="other" name="specifier" value="3" checked>
+              <label id="other">Other</label><br>
+              <p>Enter contact info here (required):</p>
+              <textarea name="contact-input"></textarea>
+              <br>
+              <p>Enter message here (required):</p>
+              <textarea name="message-input"></textarea>
+              <br>
+              <br>
+              <input type="submit"/>
+            </form>
           </div>
+        </div>
+        <div id="page-edge">
+          <p id="rand-message-container"></p>
         </div>
       </div>
     </div>

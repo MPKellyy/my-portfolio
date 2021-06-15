@@ -52,6 +52,30 @@ async function generateRandMessage() {
   index = Math.floor(Math.random()*jsonList.length);
 
   //displaying message
-  const dateContainer = document.getElementById('rand-message-container');
-  dateContainer.innerText = jsonList[index].quote + "\n\n-" + jsonList[index].author;
+  const messageContainer = document.getElementById('rand-message-container');
+  messageContainer.innerText = jsonList[index].quote + "\n\n-" + jsonList[index].author;
+}
+
+/** Fetches a list of employers willing to showcase opportunity and displaying them to page. */
+async function displayOpportunities() {
+  //Recieving json data  
+  const responseFromServer = await fetch('/showcase-opportunity');
+  const jsonList = await responseFromServer.json();
+
+  //Creating variable to store text to be displayed
+  opportunityShowcase = "";
+
+  for(var i = 0; i<jsonList.length; i++){
+    opportunityShowcase += jsonList[i].opportunityType + ": " + jsonList[i].positionTitle + " (" + jsonList[i].dateContacted + ")\n\n";
+  }
+
+  //displaying message
+  const dateContainer = document.getElementById('opportunity-container');
+  dateContainer.innerText = opportunityShowcase;
+}
+
+/** Wrapper for contact page (needed to onload two functions at once) */
+function contactPageWrapper(){
+    generateRandMessage();
+    displayOpportunities();
 }

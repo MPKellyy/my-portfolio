@@ -1,5 +1,8 @@
 package com.google.sps.servlets;
 
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import java.util.Date;
 import java.lang.String;
 import com.google.cloud.datastore.Datastore;
@@ -49,23 +52,36 @@ public class FormHandlerServlet extends HttpServlet {
         showcasePermission = false;
     }
 
-    //Checks to see if contact and message text boxes contain data to save, won't store otherwise
-    if(!(contactInfo.equals(""))&&!(message.equals(""))&&!(positionTitle.equals(""))){
-        //Saving form to database
-        Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Employer");
-        FullEntity employerEntity =
-            Entity.newBuilder(keyFactory.newKey())
-                .set("type", opportunityType)
-                .set("contactInfo", contactInfo)
-                .set("message", message)
-                .set("positionTitle", positionTitle)
-                .set("showcasePermission", showcasePermission)
-                .set("date", new Date().toString())
-                //Will like add an option to upload an image here
-                .build();
-        datastore.put(employerEntity);
+    //Calculating Sentiment Score of Form
+    String form = contactInfo + ". " + positionTitle + ". " + message + ".";
+
+    Document doc =
+        Document.newBuilder().setContent(form).setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    float sentimentScore = sentiment.getScore();
+    languageService.close();
+
+    //If sentiment score is below specified threshold, it will not be displayed (prevents spam/trolls)
+    if(Float.compare(sentimentScore, 0) < 0){
+        showcasePermission = false;
     }
+
+    //Saving form to database
+    Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+    KeyFactory keyFactory = datastore.newKeyFactory().setKind("Employer");
+    FullEntity employerEntity =
+        Entity.newBuilder(keyFactory.newKey())
+            .set("type", opportunityType)
+            .set("contactInfo", contactInfo)
+            .set("message", message)
+            .set("positionTitle", positionTitle)
+            .set("showcasePermission", showcasePermission)
+            .set("date", new Date().toString())
+            //TODO: Add an option to upload an image
+            .build();
+    datastore.put(employerEntity);
+
 
     response.sendRedirect("contact-me.html");
 

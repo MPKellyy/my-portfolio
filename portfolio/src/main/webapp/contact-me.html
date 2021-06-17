@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body onload=generateRandMessage()>
+  <body onload=contactPageWrapper()>
     <div id="content">
       <h1 id="header">Contact Me</h1>
       <div id="inner">
@@ -23,27 +23,45 @@
         </div>
         <div id="categories">
           <div id="header">
-            <h2>Want to contact me?</h2>
+            <h2>Want to Contact Me?</h2>
           </div>
-          <p>You can reach me by my contact information on the resume page, or submit your own below!</p>
-          <form action="/form-handler" method="POST">
-            <input type="radio" id="job" name="specifier" value="1">
-            <label for="job">Job Opportunity</label><br>
-            <input type="radio" id="intern" name="specifier" value="2">
-            <label for="itern">Internship Opportunity</label><br>
-            <input type="radio" id="other" name="specifier" value="3" checked>
-            <label id="other">Other</label><br>
-            
-            <p>Enter contact info here:</p>
-            <textarea name="text-input"></textarea>
-            <br/>
-            <input type="submit" />
-          </form>
-          <br>
-          <p id="luckynum-container"></p>
-          <div id="page-edge">
-            <p id="rand-message-container"></p>
+          <div id="inner2">
+            <p>You can reach me by my contact information on the resume page, or submit your own below!</p>
+            <form action="/form-handler" method="POST">
+              <input type="radio" id="job" name="specifier" value="1">
+              <label for="job">Job Opportunity</label><br>
+              <input type="radio" id="intern" name="specifier" value="2">
+              <label for="itern">Internship Opportunity</label><br>
+              <input type="radio" id="other" name="specifier" value="3" checked>
+              <label id="other">Other</label><br>
+              <p>Enter contact info here:</p>
+              <textarea name="contact-input" required></textarea>
+              <br>
+              <p>Enter position title here:</p>
+              <textarea name="position-input" required></textarea>
+              <br>              
+              <p>Enter message here:</p>
+              <textarea name="message-input" required></textarea><br>
+              <p>Permission to Showcase Opportunity (only position title is displayed):</p>
+              <input type="radio" id="yes" name="permission" value="1" checked>
+              <label for="job">Yes</label><br>
+              <input type="radio" id="no" name="permission" value="2">
+              <label for="itern">No</label><br>
+              <br>
+              <input type="submit"/>
+            </form>
           </div>
+        </div>
+        <div id="categories">
+          <div id="header">
+            <h2>Opportunities I've Been Offered!</h2>
+          </div>
+          <div id="inner2">
+            <p id="opportunity-container"></p>
+          </div>
+        </div>
+        <div id="page-edge">
+          <p id="rand-message-container"></p>
         </div>
       </div>
     </div>

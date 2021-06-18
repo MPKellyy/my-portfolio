@@ -19,18 +19,6 @@
     <googleCloudProjectId>mkelly-sps-summer21</googleCloudProjectId>
   </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.google.cloud</groupId>
-        <artifactId>libraries-bom</artifactId>
-        <version>20.6.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
     <!-- Java Servlets API -->
     <dependency>
@@ -51,25 +39,25 @@
       <version>${jetty.version}</version>
     </dependency>
 
-    <!-- Gson -->
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.8.6</version>
-    </dependency>
-
     <!-- Datastore -->
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-datastore</artifactId>
       <version>1.104.0</version>
-    </dependency>  
+    </dependency>
 
     <!-- jsoup -->
     <dependency>
       <groupId>org.jsoup</groupId>
       <artifactId>jsoup</artifactId>
       <version>1.8.3</version>
+    </dependency>
+
+    <!-- Gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
     </dependency>
 
     <!-- Cloud Language -->
@@ -79,8 +67,6 @@
       <version>1.55.0</version>
     </dependency>
   </dependencies>
-
-
 
   <build>
     <plugins>
@@ -122,17 +108,6 @@
                   <mainClass>${exec.mainClass}</mainClass>
                 </transformer>
               </transformers>
-              <filters>
-                <filter>
-                  <artifact>*:*</artifact>
-                  <!-- Some libraries are signed, so exclude signature files from the output jar. -->
-                  <excludes>
-                    <exclude>META-INF/*.SF</exclude>
-                    <exclude>META-INF/*.DSA</exclude>
-                    <exclude>META-INF/*.RSA</exclude>
-                  </excludes>
-                </filter>
-              </filters>
             </configuration>
           </execution>
         </executions>

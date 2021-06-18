@@ -29,6 +29,8 @@
         <scope>import</scope>
        </dependency>
      </dependencies>
+      </dependency>
+    </dependencies>
   </dependencyManagement>
 
   <dependencies>

@@ -52,23 +52,21 @@ public class FormHandlerServlet extends HttpServlet {
         showcasePermission = false;
     }
 
-    // try{
-    //     //Calculating Sentiment Score of Form
-    //     String form = contactInfo + ". " + positionTitle + ". " + message + ".";
-    //     Document doc = Document.newBuilder().setContent(form).setType(Document.Type.PLAIN_TEXT).build();
-    //     LanguageServiceClient languageService = LanguageServiceClient.create();
-    //     Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-    //     float score = sentiment.getScore();
-    //     languageService.close();
 
-    //     //If sentiment score is below specified threshold, it will not be displayed (prevents spam/trolls)
-    //     if(Float.compare(score, 0) < 0){
-    //         showcasePermission = false;
-    //     }
-    // }
-    // catch(Exception e){
-    //     System.out.println("Sentiment check failed to execute.");
-    // }
+    //Calculating Sentiment Score of Form
+    String form = contactInfo + ". " + positionTitle + ". " + message + ".";
+
+    Document doc = 
+        Document.newBuilder().setContent(form).setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();        
+    float score = sentiment.getScore();
+    languageService.close();
+
+    //If sentiment score is below specified threshold, it will not be displayed (prevents spam/trolls)
+    if(Float.compare(score, 0) < 0){
+        showcasePermission = false;
+    }
 
     //Saving form to database
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();

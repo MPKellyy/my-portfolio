@@ -52,18 +52,19 @@ public class FormHandlerServlet extends HttpServlet {
         showcasePermission = false;
     }
 
+
     //Calculating Sentiment Score of Form
     String form = contactInfo + ". " + positionTitle + ". " + message + ".";
 
-    Document doc =
+    Document doc = 
         Document.newBuilder().setContent(form).setType(Document.Type.PLAIN_TEXT).build();
     LanguageServiceClient languageService = LanguageServiceClient.create();
-    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-    float sentimentScore = sentiment.getScore();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();        
+    float score = sentiment.getScore();
     languageService.close();
 
     //If sentiment score is below specified threshold, it will not be displayed (prevents spam/trolls)
-    if(Float.compare(sentimentScore, 0) < 0){
+    if(Float.compare(score, 0) < 0){
         showcasePermission = false;
     }
 
